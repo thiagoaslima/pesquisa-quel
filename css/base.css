@@ -27,6 +27,42 @@ footer {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+#progress {
+    display: inline-block;
+    width: 70%;
+}
+
+.nav-buttons {
+    display: inline-block;
+    width: 30%;
+}
+
+.button-wrapper {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.button-wrapper button {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.button-wrapper .up {
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.button-wrapper .down {
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
 form {
     counter-reset: questions; 
 }
