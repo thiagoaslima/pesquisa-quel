@@ -25,32 +25,38 @@
     }
 
     function showSlide(n) {
+
         if ($('.slide-visible').length == 0) {
             $('slide').eq(n).addClass('slide-visible');
         } else {
             let old = $('.slide-visible');
-            let next = old.next('.slide')
+            let next = old.next('.slide');
+
+            const handler = function () {
+                removeVisibleClass(old);
+                next.off('transitionend', handler);
+            };
+
             next
                 .addClass('slide-visible')
-                .animate({
-                    marginTop: '-100%'
-                }, 500, function (el) {
-                    old.removeClass('slide-visible')
-                    old = null;
-                    next = null;
-                });
+                .on('transitionend', handler);
         }
-
-
-
     }
 
     function run() {
+        $('.questao').each(function(idx, el) {
+            $(el).attr('data-count', idx+1);
+        });
         $('slide').eq(0).addClass('visible');
         $('.nav-buttons .up')
             .on('click', () => {
                 this.next()
-            })
+            });
+        
+    }
+
+    function removeVisibleClass(el) {
+        el.removeClass('slide-visible');
     }
 
 })(window, jQuery)

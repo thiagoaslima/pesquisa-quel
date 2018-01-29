@@ -15,18 +15,39 @@
     width: 40px;
     margin: 0 20px 0 10px;
     background: none;
-    border: 2px solid rgba(79,176,174,0.6);
+    border: none;
     font-weight: bold;
     text-align: center;
     height: 40px;
     font-size: 25px;
+    opacity: 0.6;
+}
+
+.questao-numerar input.input-tab-selected {
+    font-size: 1.3em;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    margin: 0 10px 0 5px;
 }
 
 .questao-numerar .opcao input:placeholder-shown {
-    transition: all;
     border: none;
-    border-left: 1px solid grey;
+    border-bottom: 3px solid grey;
 }
+
+.questao-numerar ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: gray;
+  }
+  .questao-numerar  ::-moz-placeholder { /* Firefox 19+ */
+    color: gray;
+  }
+  .questao-numerar :-ms-input-placeholder { /* IE 10+ */
+    color: gray;
+  }
+  .questao-numerar :-moz-placeholder { /* Firefox 18- */
+    color: gray;
+  }
 
 .questao-numerar .opcao input:focus {
     background: white;

@@ -1,0 +1,18 @@
+{
+    "slides": [
+        {
+            "tipo": "numerar",
+            "questao": "Classifique os níveis de consciência abaixo de acordo com as características que mais se aproximam do perfil da chefia que ocupa o cargo mais alto do setor de Recurso Humanos/Gestão de Pessoas da sua empresa.",
+            "opcoes": [
+                {
+                    "texto": "Apresenta grande preocupação com a responsabilidade social, se preocupa com as gerações futuras, demonstra compaixão e perspectiva de longo prazo.",
+                    "valor": {
+                        "atual": "",
+                        "desejado": ""
+                    }
+                }
+            ]
+        }
+
+    ]
+}

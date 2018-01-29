@@ -68,23 +68,32 @@ form {
 }
 
 .slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
     width: 100%;
     display: none;
-    padding: 40px;
+    padding: 40px 40px 100px;
+    transition: transform 1s;
+    background: #f5f5f5;
 }
 
 .slide-visible {
-    display: flex;
-    flex-basis: 100%;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
+    display: block;
+    overflow: auto;
+}
+
+.slide-visible + .slide {
+    display: block;
+    transform: translateY(100%);
+}
+
+.slide-visible + .slide.slide-visible {
+    transform: translateY(0);
 }
 
 .questao {
-    width: 68.5%;
-    font-family: 'Source Serif Pro', serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 24px;
     line-height: 130%;
     color: #3D3D3D;
@@ -95,11 +104,10 @@ form {
     position: absolute;
     margin-left: -60px;
     counter-increment: questions;
-    content: counter(questions) "\2002\2192";
+    content: attr(data-count) "\2002\2192";
 }
 
 .opcoes {
-    width: 68.5%;
     font-family: 'Source Sans Pro', sans-serif;
     flex: 1 1 auto;
     overflow-y: auto;
@@ -127,11 +135,33 @@ input, textarea {
     resize: none;
     background: none;
     outline: none;
-    font-family: "Source Sans Pro",sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     -webkit-font-smoothing: antialiased;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 30px;
     line-height: 40px;
+}
+
+.tabs {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    text-transform: lowercase;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+}
+
+.tab {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tab.tab-selected {
+    font-size: 1.3em;
+    font-weight: bold;
+    border: 1px solid lightgray;
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
 }
