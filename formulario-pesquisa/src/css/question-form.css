@@ -1,0 +1,26 @@
+.question__form {
+    width: 100%;
+    counter-reset: questionsTitle;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question__title-container {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.question__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.question__title:before {
+    position: absolute;
+    margin-left: -30px;
+    counter-increment: questionsTitle;
+    content: counter(questionsTitle);
+}

@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import FormQuestions from './formulario/FormQuestions';
+import { questions } from './data/questions';
+import './css/app.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App color-5">
+                <header className="App__header bg-color-3" />
+                <div className="App__body bg-color-4">
+                    <FormQuestions questions={questions} />
+                </div>
+            </div>
+        )
+    }
 }
 
 export default App;
