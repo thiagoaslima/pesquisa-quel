@@ -9,7 +9,7 @@ class App extends Component {
             <div className="App color-5">
                 <header className="App__header bg-color-3" />
                 <div className="App__body bg-color-4">
-                    <FormQuestions questions={questions} />
+                    <FormQuestions title={"Pesquisa de RH"} questions={questions} />
                 </div>
             </div>
         )

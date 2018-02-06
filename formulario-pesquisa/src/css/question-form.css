@@ -1,10 +1,29 @@
 .question__form {
     width: 100%;
     counter-reset: questionsTitle;
+    background-color: inherit;
+}
+
+.question__form-title {
+    display: block;
+    font-size: 32px;
+    font-weight: 400;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    margin: 0 0 1px;
+    padding: 25px 65px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
 }
 
 .question {
-    margin-bottom: 20px;
+    padding: 30px 90px;
+    background-color: inherit;
+}
+.question:hover,
+.question:focus,
+.question.onfocus {
+    transform: scale3d(1.05, 1, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),0 -1px 10px rgba(0, 0,0, 0.1)
 }
 
 .question__title-container {
@@ -20,7 +39,7 @@
 
 .question__title:before {
     position: absolute;
-    margin-left: -30px;
+    margin-left: -25px;
     counter-increment: questionsTitle;
     content: counter(questionsTitle);
 }

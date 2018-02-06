@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import AbstractQuestion from './AbstractQuestion';
 
-class TextQuestion extends Component {
-    static defaultProps = {
-        title: '',
-        name: 0
-    }
-
+class InputQuestion extends AbstractQuestion {
     render() {
         return (
             <div className="question input-question">
@@ -15,7 +11,7 @@ class TextQuestion extends Component {
 
                 <div className="question__options">
                     <div className="question__option">
-                        <input type="text" name={`Q${this.props.name}`} className="question__option__input" />
+                        <input type="text" onChange={this.handleChangeValue.bind(this)} name={`Q${this.props.name}`} className="question__option__input" />
                     </div>
                 </div>
             </div>
@@ -23,4 +19,4 @@ class TextQuestion extends Component {
     }
 }
 
-export default TextQuestion;
+export default InputQuestion;
