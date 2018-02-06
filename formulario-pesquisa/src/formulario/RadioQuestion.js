@@ -9,7 +9,7 @@ class RadioQuestion extends Component {
 
     render() {
         return (
-            <div className="question input-question">
+            <div className="question question__radio">
                 <div className="question__title-container">
                     <h1 className="question__title">{this.props.title}</h1>
                 </div>

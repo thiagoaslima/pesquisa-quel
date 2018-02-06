@@ -1,5 +1,9 @@
 export const questions = [
     {
+        type: 'text',
+        title: 'Dados pessoais'
+    },
+    {
         type: 'input',
         title: 'Nome'
     },
@@ -36,6 +40,10 @@ export const questions = [
                 value: '61+'
             }
         ]
+    },
+    {
+        type: 'text',
+        title: 'Responda as questões abaixo, relacionando as características que mais representam os valores do(a) chefe de maior nível hierárquico do setor de Recursos humanos ou de Gestão de pessoas do órgão/instituição onde você trabalha.'
     },
     {
         type: 'rating-order',

@@ -4,7 +4,7 @@ import AbstractQuestion from './AbstractQuestion';
 class InputQuestion extends AbstractQuestion {
     render() {
         return (
-            <div className="question input-question">
+            <div className="question question__input">
                 <div className="question__title-container">
                     <h1 className="question__title">{this.props.title}</h1>
                 </div>
