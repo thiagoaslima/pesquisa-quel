@@ -6,14 +6,30 @@ class AbstractQuestion extends Component {
         name: 0
     }
 
-    static defaultState = {
-        value: null
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            value: null,
+            isFocused: false
+        }
+
+        this.handleOnFocus = this.handleOnFocus.bind(this);
+        this.handleOnBlur = this.handleOnBlur.bind(this);
     }
 
     handleChangeValue(e) {
         this.setState({value: e.target.value});
     }
     
+    handleOnFocus(evt) {
+        this.setState({isFocused: true});
+    }
+
+    handleOnBlur(evt) {
+        this.setState({isFocused: false});
+    }
+
 }
 
 export default AbstractQuestion;

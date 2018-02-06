@@ -2,9 +2,10 @@ import React from 'react';
 import AbstractQuestion from './AbstractQuestion';
 
 class InputQuestion extends AbstractQuestion {
+
     render() {
         return (
-            <div className="question question__input">
+            <div onFocus={this.handleOnFocus} onBlur={this.handleOnBlur} className={`question question__input ${this.state.isFocused ? 'onfocus' : ''}`}>
                 <div className="question__title-container">
                     <h1 className="question__title">{this.props.title}</h1>
                 </div>

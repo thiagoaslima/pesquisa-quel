@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import AbstractQuestion from './AbstractQuestion';
 
-class TextQuestion extends Component {
+class TextQuestion extends AbstractQuestion {
     static defaultProps = {
         title: '',
         name: 0
@@ -8,7 +9,7 @@ class TextQuestion extends Component {
 
     render() {
         return (
-            <div className="question question__yes-no">
+            <div className={`question question__yes-no ${this.state.isFocused ? 'onfocus' : ''}`} onFocus={this.handleOnFocus} onBlur={this.handleOnBlur}>
                 <div className="question__title-container">
                     <h1 className="question__title">{this.props.title}</h1>
                 </div>
