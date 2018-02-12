@@ -12,7 +12,7 @@ class InputQuestion extends AbstractQuestion {
 
                 <div className="question__options">
                     <div className="question__option">
-                        <input type="text" onChange={this.handleChangeValue.bind(this)} name={`Q${this.props.name}`} className="question__option__input" />
+                        <input type="text" onChange={this.handleChangeValue} name={`Q${this.props.name}`} className="question__option__input" />
                     </div>
                 </div>
             </div>

@@ -10,7 +10,22 @@ import '../css/question-form.css';
 class FormQuestions extends Component {
     static defaultProps = {
         questions: [],
-        title: ''
+        title: '',
+        submitFn: null
+    }
+    
+    state = {
+        answers: {}
+    }
+
+    submit() {
+
+    }
+
+    onChange(componentName, value) {
+        debugger;
+        let answers = Object.assign({}, this.state.answers, {[componentName]: value});
+        this.setState({answers: answers});
     }
 
     render() {
@@ -31,19 +46,19 @@ class FormQuestions extends Component {
     createSlide(question, key) {
         switch (question.type) {
             case 'text':
-                return <OnlyText key={key} name={key} {...question} />
+                return <OnlyText key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
 
             case 'input':
-                return <InputQuestion key={key} name={key} {...question} />
+                return <InputQuestion key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
 
             case 'radio':
-                return <RadioQuestion key={key} name={key} {...question} />
+                return <RadioQuestion key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
 
             case 'rating-order':
-                return <RatingOrderQuestion key={key} name={key} {...question} />
+                return <RatingOrderQuestion key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
 
             case 'yes-no':
-                return <YesOrNoQuestion key={key} name={key} {...question} />
+                return <YesOrNoQuestion key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
 
             default:
                 return '';

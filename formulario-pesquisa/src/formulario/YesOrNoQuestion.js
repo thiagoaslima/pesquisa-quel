@@ -17,13 +17,13 @@ class TextQuestion extends AbstractQuestion {
                 <div className="question__options">
                     <div className="question__option">
                         <label className="question__option-label">
-                            <input className="question__option__input" type="radio" name={`Q${this.props.name}`} value="yes" />
+                            <input className="question__option__input" type="radio" onChange={this.handleChangeValue} name={`Q${this.props.name}`} value="yes" />
                             Sim
                         </label>
                     </div>
                     <div className="question__option">
                         <label className="question__option-label">
-                            <input className="question__option__input" type="radio" name={`Q${this.props.name}`} value="no" />
+                            <input className="question__option__input" type="radio" onChange={this.handleChangeValue} name={`Q${this.props.name}`} value="no" />
                             Não
                         </label>
                     </div>

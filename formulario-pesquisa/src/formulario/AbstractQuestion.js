@@ -3,7 +3,8 @@ import { Component } from 'react';
 class AbstractQuestion extends Component {
     static defaultProps = {
         title: '',
-        name: 0
+        name: 0,
+        changeFn: null
     }
 
     constructor(props) {
@@ -16,10 +17,24 @@ class AbstractQuestion extends Component {
 
         this.handleOnFocus = this.handleOnFocus.bind(this);
         this.handleOnBlur = this.handleOnBlur.bind(this);
+        this.handleChangeValue = this.handleChangeValue.bind(this);
+        
+    }
+
+    componentDidMount() {
+        this.updateValue(this.state.value);
     }
 
     handleChangeValue(e) {
-        this.setState({value: e.target.value});
+        const value = e.target.value;
+        this.setState({value: value});
+        this.updateValue(value);
+    }
+    
+    updateValue(value) {
+        if (this.props.changeFn) {
+            this.props.changeFn(this.props.name, value);
+        }
     }
     
     handleOnFocus(evt) {
