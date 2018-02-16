@@ -1,10 +1,11 @@
 import { Component } from 'react';
 
-class AbstractQuestion extends Component {
+class BasicQuestion extends Component {
     static defaultProps = {
         title: '',
         name: 0,
-        changeFn: null
+        changeFn: null,
+        required: false
     }
 
     constructor(props) {
@@ -12,13 +13,11 @@ class AbstractQuestion extends Component {
         
         this.state = {
             value: null,
-            isFocused: false
+            valid: true,
+            pristine: true
         }
 
-        this.handleOnFocus = this.handleOnFocus.bind(this);
-        this.handleOnBlur = this.handleOnBlur.bind(this);
         this.handleChangeValue = this.handleChangeValue.bind(this);
-        
     }
 
     componentDidMount() {
@@ -30,21 +29,17 @@ class AbstractQuestion extends Component {
         this.setState({value: value});
         this.updateValue(value);
     }
+
+    isRequired(required) {
+        return { "required": required };
+    }
     
     updateValue(value) {
         if (this.props.changeFn) {
             this.props.changeFn(this.props.name, value);
         }
     }
-    
-    handleOnFocus(evt) {
-        this.setState({isFocused: true});
-    }
-
-    handleOnBlur(evt) {
-        this.setState({isFocused: false});
-    }
 
 }
 
-export default AbstractQuestion;
+export default BasicQuestion;

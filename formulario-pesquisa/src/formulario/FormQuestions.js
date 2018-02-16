@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import OnlyText from './OnlyText';
-import InputQuestion from './InputQuestion';
-import RatingOrderQuestion from './RatingOrderQuestion';
-import RadioQuestion from './RadioQuestion';
-import YesOrNoQuestion from './YesOrNoQuestion';
+import InputQuestion from './questions/InputQuestion';
+import RatingOrderQuestion from './questions/RatingOrderQuestion';
+import RadioQuestion from './questions/RadioQuestion';
+import YesNoQuestion from './questions/YesNoQuestion';
+import QuestionTitle from './QuestionTitle';
 
 import '../css/question-form.css';
 
@@ -15,38 +15,53 @@ class FormQuestions extends Component {
     }
     
     state = {
+        isOnFocus: [],
         answers: {}
     }
 
-    submit() {
-
+    submit(evt) {
+        evt.preventDefault();
+        const el = evt.target;
+        console.log(el.checkValidity())
     }
 
     onChange(componentName, value) {
-        debugger;
-        let answers = Object.assign({}, this.state.answers, {[componentName]: value});
-        this.setState({answers: answers});
+        let answers = Object.assign({}, this.state.answers, { [componentName]: value });
+        this.setState({ answers: answers });
     }
 
     render() {
         return (
-            <form className="question__form">
+            <form onSubmit={this.submit.bind(this)} className="question__form">
                 <h1 className="question__form-title">
                     {this.props.title}
                 </h1>
+
                 {
-                    this.props.questions.map((slide, idx) => {
-                        return this.createSlide(slide, idx);
-                    })
+                    this.props.questions.map((question, idx) => (
+                        <div key={idx} onFocus={this.handleOnFocus.bind(this, idx)}
+                            onBlur={this.handleOnBlur.bind(this, idx)}
+                            className={`${this.getQuestionClassName(question.type)} ${this.state.isFocused ? 'onfocus' : ''}`}>
+                            <QuestionTitle title={question.title} />
+                            {
+                                this.createQuestion(question, idx)
+                            }
+                        </div>
+                    ))
                 }
+
+                <div className="question__form__footer">
+                    <button className="question__form__submit-button bg-color-3" type="submit">Enviar</button> 
+                </div>
+
             </form>
         )
     }
 
-    createSlide(question, key) {
+    createQuestion(question, key) {
         switch (question.type) {
-            case 'text':
-                return <OnlyText key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
+            // case 'text':
+            //     return <OnlyText key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
 
             case 'input':
                 return <InputQuestion key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
@@ -58,11 +73,53 @@ class FormQuestions extends Component {
                 return <RatingOrderQuestion key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
 
             case 'yes-no':
-                return <YesOrNoQuestion key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
+                return <YesNoQuestion key={key} name={key} changeFn={this.onChange.bind(this)} {...question} />
 
             default:
                 return '';
         }
+    }
+
+    getQuestionClassName(type) {
+        let className;
+        switch (type) {
+            case 'text':
+                className = 'question__text';
+                break;
+
+            case 'input':
+                className = 'question__input';
+                break;
+
+            case 'radio':
+                className = 'question__radio';
+                break;
+
+            case 'rating-order':
+                className = 'question__rating-order';
+                break;
+
+            case 'yes-no':
+                className = 'question__yes-no';
+                break;
+
+            default:
+                className = '';
+                break;
+        }
+
+        return ['question', className].join(' ');
+    }
+
+    handleOnFocus(idx, evt) {
+        let arr = Array(this.props.questions.length).fill(false);
+        arr[idx] = true;
+        this.setState({ isOnFocus: arr });
+    }
+
+    handleOnBlur(idx, evt) {
+        let arr = Array(this.props.questions.length).fill(false);
+        this.setState({ isOnFocus: arr });
     }
 }
 

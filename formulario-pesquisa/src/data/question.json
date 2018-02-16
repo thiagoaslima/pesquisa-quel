@@ -2,23 +2,28 @@
     "questions": [
         {
             "type": "text",
-            "title": "Dados pessoais"
+            "title": "Dados pessoais",
+            "required": true
         },
         {
             "type": "input",
-            "title": "Nome"
+            "title": "Nome",
+            "required": true
         },
         {
             "type": "yes-no",
-            "title": "Servidor Público"
+            "title": "Servidor Público",
+            "required": true
         },
         {
             "type": "yes-no",
-            "title": "Trabalha no setor de RH"
+            "title": "Trabalha no setor de RH",
+            "required": true
         },
         {
             "type": "radio",
             "title": "Idade",
+            "required": true,
             "questions": [
                 {
                     "text": "20 a 30 anos",
@@ -44,11 +49,13 @@
         },
         {
             "type": "text",
-            "title": "Responda as questões abaixo, relacionando as características que mais representam os valores do(a) chefe de maior nível hierárquico do setor de Recursos humanos ou de Gestão de pessoas do órgão/instituição onde você trabalha."
+            "title": "Responda as questões abaixo, relacionando as características que mais representam os valores do(a) chefe de maior nível hierárquico do setor de Recursos humanos ou de Gestão de pessoas do órgão/instituição onde você trabalha.",
+            "required": true
         },
         {
             "type": "rating-order",
-            "title": "Classifique os níveis de consciência abaixo de acordo com as características que mais se aproximam do perfil da chefia que ocupa o cargo mais alto do setor de Recurso Humanos/Gestão de Pessoas da sua empresa.",
+            "title": "Numere de 1 a 7 os níveis de consciência abaixo de acordo com as características que mais se aproximam do perfil da chefia que ocupa o cargo mais alto do setor de Recurso Humanos/Gestão de Pessoas da sua empresa.",
+            "required": true,
             "scenarios": [
                 "Atualmente",
                 "Como seria o ideal"
