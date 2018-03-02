@@ -10,37 +10,59 @@ class RatingOrderQuestion extends BasicQuestion {
     }
 
     state = {
-        values: []
+        values: this.props.scenarios.reduce((agg, scenario) => {
+            agg[this.slug(scenario)] = []
+            return agg;
+        }, {})
+    }
+
+    slug(str) {
+        return str.toLowerCase().replace(/\s/g, '-');
     }
 
     render() {
         const { required, questions, scenarios } = this.props;
+        const slugs = scenarios.map(this.slug);
+
         return (
             <div className="question__options">
-                {
-                    questions.map((question, idx) => {
-                        const { title } = question;
-                        return (
-                            <div key={idx} className="question__option">
-                                <h3 className="question__option__text">{title}</h3>
-                                {
-                                    scenarios.map((scenario, scenarioIdx) => (
-                                        <div key={scenarioIdx} className="question__option__answer">
-                                            <label className="question__option__label">
-                                                <input {...this.isRequired(required)}
-                                                    onChange={this.onChange.bind(this, idx, scenarioIdx)}
-                                                    pattern={`[1-${questions.length}]{1}`}
-                                                    type="text" />
-                                                {scenario}
-                                            </label>
-                                        </div>
+                <table>
+                    <thead>
+                    <tr>
+                        {
+                            scenarios.map( (scenario, idx) => (<th key={idx}>{scenario}</th>))
+                        }
+                        <th>questões</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        questions.map((question, idx) => {
+                            const { title } = question;
 
-                                    ))
-                                }
-                            </div>
-                        )
-                    })
-                }
+                            return (
+                                <tr key={idx}>
+                                    {
+                                        scenarios.map((scenario, scenarioIdx) => {
+                                            return (
+                                                <td key={`${idx}-${scenarioIdx}`}>
+                                                    <input {...this.isRequired(required)}
+                                                        name={slugs[scenarioIdx] + '-' + idx}
+                                                        onChange={this.onChange.bind(this, idx, scenario)}
+                                                        pattern={`[1-${questions.length}]{1}`}
+                                                        type="text" />
+                                                </td>
+                                            )
+                                        })
+                                    }
+
+                                    <td>{title}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                    </tbody>
+                </table>
             </div>
         )
 
@@ -48,11 +70,13 @@ class RatingOrderQuestion extends BasicQuestion {
 
     onChange(subquestion, scenario, evt) {
         const value = evt.target.value;
-        const values = [].concat(this.state.values);
-        if (!values[subquestion]) {
-            values[subquestion] = []
+        const prop = this.slug(scenario);
+        let values = this.state.values[prop].slice();
+
+        if (values.indexOf(value) >= 0) {
+            values = values.map(val => val < value ? val : val + 1)
         }
-        values[subquestion][scenario] = value;
+
         this.setState({ values: values })
         this.props.changeFn(this.props.name, this.state.values);
     }
