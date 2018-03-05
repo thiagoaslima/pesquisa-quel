@@ -22,7 +22,9 @@ class FormQuestions extends Component {
     submit(evt) {
         evt.preventDefault();
         const el = evt.target;
-        console.log(el.checkValidity())
+        if (el.checkValidity()) {
+            this.props.submitFn(this.state.answers);
+        }
     }
 
     onChange(componentName, value) {

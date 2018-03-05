@@ -3,7 +3,7 @@
         {
             "type": "text",
             "title": "Dados pessoais",
-            "required": true
+            "required": false
         },
         {
             "type": "input",
@@ -50,7 +50,7 @@
         {
             "type": "text",
             "title": "Responda as questões abaixo, relacionando as características que mais representam os valores do(a) chefe de maior nível hierárquico do setor de Recursos humanos ou de Gestão de pessoas do órgão/instituição onde você trabalha.",
-            "required": true
+            "required": false
         },
         {
             "type": "rating-order",
