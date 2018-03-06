@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FormQuestions from './formulario/FormQuestions';
-// import { questions } from './data/questions';
 import './css/app.css';
 import database from './firebase/database'
 
@@ -15,8 +14,8 @@ class App extends Component {
 
     postData(formData) {
         // Get a key for a new Post.
-       // var newPostKey = this.props.firebaseDatabase.ref().child('answers').push().key;
-        this.props.firebaseDatabase.ref('answers').set(formData);
+        var newPostKey = this.props.firebaseDatabase.ref().child('answers').push().key;
+        this.props.firebaseDatabase.ref('answers/' + newPostKey).set(formData);
     }
 
     componentDidMount() {

@@ -105,9 +105,10 @@ class RatingOrderQuestion extends BasicQuestion {
         })
 
         this.setState({ values: this.state.values });
-        this.props.changeFn(this.props.name, Object.keys(this.state.values).reduce(key => {
-            return Object.keys(this.state.values[key]).map(idx => this.state.values[key][idx].value);
-        }));
+        this.props.changeFn(this.props.name, Object.keys(this.state.values).reduce((agg, key) => {
+            agg[key] = Object.keys(this.state.values[key]).map(idx => this.state.values[key][idx].value);
+            return agg;
+        }, {}));
     }
 }
 
