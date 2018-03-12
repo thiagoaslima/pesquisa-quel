@@ -11,7 +11,8 @@ class RatingOrderQuestion extends BasicQuestion {
                     agg[idx] = {
                         value: '',
                         validity: false,
-                        element: null
+                        element: null,
+                        pristine: true
                     }
                     return agg;
                 }, {});
@@ -35,7 +36,7 @@ class RatingOrderQuestion extends BasicQuestion {
                     <thead>
                         <tr>
                             {
-                                scenarios.map((scenario, idx) => (<th key={idx}>{scenario}</th>))
+                                scenarios.map((scenario, idx) => (<th className="rating-order__column-title" key={idx}>{scenario}</th>))
                             }
                             <th>questões</th>
                         </tr>
@@ -51,9 +52,9 @@ class RatingOrderQuestion extends BasicQuestion {
                                         {
                                             scenarios.map((scenario, scenarioIdx) => {
                                                 return (
-                                                    <td key={`${idx}-${scenarioIdx}`}>
+                                                    <td className="rating-order__cell" key={`${idx}-${scenarioIdx}`}>
                                                         <input {...this.isRequired(required)}
-                                                            className={values[slugs[scenarioIdx]].validity ? "" : "is-invalid"}
+                                                            className={values[this.slug(scenario)][scenarioIdx].pristine ? "rating-order__input" : values[this.slug(scenario)][scenarioIdx].validity ? "rating-order__input" : "rating-order__input is-invalid"}
                                                             name={slugs[scenarioIdx] + '-' + idx}
                                                             onChange={this.onChange.bind(this, idx, scenario)}
                                                             pattern={`[1-${questions.length}]{1}`}
@@ -63,7 +64,7 @@ class RatingOrderQuestion extends BasicQuestion {
                                             })
                                         }
 
-                                        <td>{title}</td>
+                                        <td className="rating-order__label">{title}</td>
                                     </tr>
                                 )
                             })
@@ -80,6 +81,7 @@ class RatingOrderQuestion extends BasicQuestion {
         const prop = this.slug(scenario);
         this.state.values[prop][subquestion].value = value;
         this.state.values[prop][subquestion].element = evt.target;
+        this.state.values[prop][subquestion].pristine = false;
 
         const mapValues = Object.keys(this.state.values[prop]).reduce((agg, key) => {
             const { value } = this.state.values[prop][key];

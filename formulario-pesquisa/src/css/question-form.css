@@ -158,3 +158,38 @@
     text-align: center;
     margin-right: 10px;
 }
+
+.rating-order__column-title {
+    vertical-align: top;
+    min-width: 100px;
+    padding: 0 20px 0 0;
+    hyphens: auto;
+    text-align: left;
+}
+
+.rating-order__cell {
+    padding: 0px 20px 0 0;
+}
+
+.rating-order__input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px dotted gray;
+    vertical-align: top;
+    font-size: 20px;
+    padding: 10px 0px;
+    font-weight: 300;
+}
+
+.rating-order__label {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    vertical-align: top;
+    padding: 20px 0 0 0;
+}
+
+.is-invalid {
+    color: red;
+    border-bottom-color: red;
+}

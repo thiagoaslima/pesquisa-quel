@@ -6,6 +6,7 @@ import YesNoQuestion from './questions/YesNoQuestion';
 import QuestionTitle from './QuestionTitle';
 
 import '../css/question-form.css';
+import { Redirect } from 'react-router-dom';
 
 class FormQuestions extends Component {
     static defaultProps = {
@@ -16,14 +17,17 @@ class FormQuestions extends Component {
     
     state = {
         isOnFocus: [],
-        answers: {}
+        answers: {},
+        shouldRedirect: false
     }
 
     submit(evt) {
         evt.preventDefault();
         const el = evt.target;
         if (el.checkValidity()) {
-            this.props.submitFn(this.state.answers);
+            this.props.submitFn(this.state.answers).then(_=> {
+                this.setState({shouldRedirect: true});
+            });
         }
     }
 
@@ -54,6 +58,7 @@ class FormQuestions extends Component {
 
                 <div className="question__form__footer">
                     <button className="question__form__submit-button bg-color-3" type="submit">Enviar</button> 
+                    { this.state.shouldRedirect && <Redirect to="/confirmation" /> }
                 </div>
 
             </form>
