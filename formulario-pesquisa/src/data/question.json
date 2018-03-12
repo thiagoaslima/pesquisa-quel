@@ -1,0 +1,313 @@
+{
+    "questions": [
+        {
+            "type": "text",
+            "title": "Dados pessoais",
+            "required": false
+        },
+        {
+            "type": "input",
+            "title": "Nome",
+            "required": true
+        },
+        {
+            "type": "yes-no",
+            "title": "Servidor Público",
+            "required": true
+        },
+        {
+            "type": "yes-no",
+            "title": "Trabalha no setor de RH",
+            "required": true
+        },
+        {
+            "type": "radio",
+            "title": "Idade",
+            "required": true,
+            "questions": [
+                {
+                    "text": "20 a 30 anos",
+                    "value": "20-30"
+                },
+                {
+                    "text": "31 a 40 anos",
+                    "value": "31-40"
+                },
+                {
+                    "text": "41 a 50 anos",
+                    "value": "41-50"
+                },
+                {
+                    "text": "51 a 60 anos",
+                    "value": "51-60"
+                },
+                {
+                    "text": "61 anos ou mais",
+                    "value": "61+"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "title": "Responda as questões abaixo, relacionando as características que mais representam os valores do(a) chefe de maior nível hierárquico do setor de Recursos humanos ou de Gestão de pessoas do órgão/instituição onde você trabalha.",
+            "required": false
+        },
+        {
+            "type": "rating-order",
+            "title": "Numere de 1 a 7 os níveis de consciência abaixo de acordo com as características que mais se aproximam do perfil da chefia que ocupa o cargo mais alto do setor de Recurso Humanos/Gestão de Pessoas da sua empresa.",
+            "required": true,
+            "scenarios": [
+                "Atualmente",
+                "Como seria o ideal"
+            ],
+            "questions": [
+                {
+                    "title": "Apresenta grande preocupação com a responsabilidade social, se preocupa com as gerações futuras, demonstra compaixão e perspectiva de longo prazo."
+                },
+                {
+                    "title": "Demonstra grande consciência ambiental, está sempre disposta a colaborar, se preocupa com a realização dos funcionários e está sempre buscando parcerias."
+                },
+                {
+                    "title": "Passa grande confiança, comprometimento, honestidade, integridade, entusiasmo e paixão na prática de suas atividades."
+                },
+                {
+                    "title": "Possui grande capacidade de adaptação, busca aprendizado contínuo, estimula o trabalho em equipe, o crescimento pessoal e promove accountability."
+                },
+                {
+                    "title": "Apresenta alta produtividade, eficiência, excelência, qualidade e está sempre buscando o crescimento profissional. Valoriza o status, a hierarquia e a burocracia."
+                },
+                {
+                    "title": "Pratica a comunicação aberta, se preocupa com os outros, favorece as relações de amizade no local de trabalho, estimula a competição interna, e tenta manipular as situações e os outros."
+                },
+                {
+                    "title": "Se preocupa com a saúde e segurança dos funcionários e sua própria estabilidade financeira. Visa o crescimento da Instituição, mas foca no curto prazo. Possui aversão a correr risco e busca no controle a solução para barra algumas inovações."
+                }
+            ]
+        },
+        {
+            "type": "rating-order",
+            "title": "Considerando o perfil da chefia que ocupa o cargo mais alto no setor de RH/Gestão de Pessoas de sua empresa, classifique cada item utilizando uma escala de valores na qual 1 representa as características mais presentes e 7 as menos presentes.",
+            "required": true,
+            "scenarios": [
+                "Atualmente",
+                "Como seria o ideal"
+            ],
+            "questions": [
+                {
+                    "title": "Gestão pouco democrática"
+                },
+                {
+                    "title": "Trabalha baseado nas orientações superiores sem tempo para questionar"
+                },
+                {
+                    "title": "Cuida da imagem e o que ela transmite para os outros"
+                },
+                {
+                    "title": "Gosta do poder e o quanto ele proporciona"
+                },
+                {
+                    "title": "Guia-se por regras"
+                },
+                {
+                    "title": "Centraliza as decisões e não permite que sua equipe participe"
+                },
+                {
+                    "title": "Obediência às normas"
+                }
+            ]
+        },
+        {
+            "type": "rating-order",
+            "title": "Considerando o perfil da chefia que ocupa o cargo mais alto no setor de RH/Gestão de Pessoas de sua empresa, classifique cada item utilizando uma escala de valores na qual 1 representa as características mais presentes e 7 as menos presentes.",
+            "required": true,
+            "scenarios": [
+                "Atualmente",
+                "Como seria o ideal"
+            ],
+            "questions": [
+                {
+                    "title": "Possui bons relacionamentos no trabalho favorecendo o desenvolvimento pessoal"
+                },
+                {
+                    "title": "Decisões que se aproximam da gestão paternalista"
+                },
+                {
+                    "title": "Foco no relacionamento pessoal"
+                },
+                {
+                    "title": "Decisões fortemente baseadas nos relacionamentos"
+                },
+                {
+                    "title": "Possui bom relacionamento dentro da equipe"
+                },
+                {
+                    "title": "Favorece um ambiente harmonioso entre os componentes de sua equipe"
+                },
+                {
+                    "title": "Se preocupa com a satisfação dos membros da equipe"
+                }
+            ]
+        },
+        {
+            "type": "rating-order",
+            "title": "Considerando o perfil da chefia que ocupa o cargo mais alto no setor de RH/Gestão de Pessoas de sua empresa, classifique cada item utilizando uma escala de valores na qual 1 representa as características mais presentes e 7 as menos presentes.",
+            "required": true,
+            "scenarios": [
+                "Atualmente",
+                "Como seria o ideal"
+            ],
+            "questions": [
+                {
+                    "title": "Busca permanentemente a eficiência operacional"
+                },
+                {
+                    "title": "Foca na produtividade"
+                },
+                {
+                    "title": "Possui foco na qualidade total"
+                },
+                {
+                    "title": "Favorece à autoestima dos funcionários"
+                },
+                {
+                    "title": "Favorece a implantação de veículos de comunicação interna no setor"
+                },
+                {
+                    "title": "Desenvolve um processo de capacitação constante para os funcionários"
+                },
+                {
+                    "title": "Participa, constantemente, de processos de capacitação e reciclagem"
+                }
+            ]
+        },
+        {
+            "type": "rating-order",
+            "title": "Considerando o perfil da chefia que ocupa o cargo mais alto no setor de RH/Gestão de Pessoas de sua empresa, classifique cada item utilizando uma escala de valores na qual 1 representa as características mais presentes e 7 as menos presentes",
+            "required": true,
+            "scenarios": [
+                "Atualmente",
+                "Como seria o ideal"
+            ],
+            "questions": [
+                {
+                    "title": "Contribui para a geração de novas ideias mesmo que quebrando paradigmas"
+                },
+                {
+                    "title": "Atua como facilitadora no processo de mudança"
+                },
+                {
+                    "title": "Está aberto a aprender novos conhecimentos"
+                },
+                {
+                    "title": "Está aberto a se arriscar"
+                },
+                {
+                    "title": "Sempre busca se renovar"
+                },
+                {
+                    "title": "Estimula à cooperação, flexibilidade, comunicação e compartilhamento de conhecimentos e habilidades entre os membros de sua equipe"
+                },
+                {
+                    "title": "Possui postura ética de prestar contas a respeito de suas ações e decisões (Accountability)"
+                }
+            ]
+        },
+        {
+            "type": "rating-order",
+            "title": "Considerando o perfil da chefia que ocupa o cargo mais alto no setor de RH/Gestão de Pessoas de sua empresa, classifique cada item utilizando uma escala de valores na qual 1 representa as características mais presentes e 7 as menos presentes.",
+            "required": true,
+            "scenarios": [
+                "Atualmente",
+                "Como seria o ideal"
+            ],
+            "questions": [
+                {
+                    "title": "Atua como tutor dos seus colaboradores ou colegas"
+                },
+                {
+                    "title": "Estimula a criatividade e sua aplicação na empresa"
+                },
+                {
+                    "title": "Possui e desenvolve uma visão compartilhada entre os membros da equipe"
+                },
+                {
+                    "title": "Possui forte coesão interna – identidade comum definida"
+                },
+                {
+                    "title": "Compartilha dos mesmos valores da equipe"
+                },
+                {
+                    "title": "Compartilha da mesma visão da empresa"
+                },
+                {
+                    "title": "Possui paixão pelo o que faz"
+                }
+            ]
+        },
+        {
+            "type": "rating-order",
+            "title": "Considerando o perfil da chefia que ocupa o cargo mais alto no setor de RH/Gestão de Pessoas de sua empresa, classifique cada item utilizando uma escala de valores na qual 1 representa as características mais presentes e 7 as menos presentes.",
+            "required": true,
+            "scenarios": [
+                "Atualmente",
+                "Como seria o ideal"
+            ],
+            "questions": [
+                {
+                    "title": "Estabelece alianças estratégicas"
+                },
+                {
+                    "title": "Desenvolve projetos ligados à comunidade"
+                },
+                {
+                    "title": "Trabalha com espírito de colaboração"
+                },
+                {
+                    "title": "Preocupa-se em fazer a diferença para um mundo melhor"
+                },
+                {
+                    "title": "Buscar estimular o empreendedorismo social"
+                },
+                {
+                    "title": "Em caso de conflitos, busca a compreensão mútua"
+                },
+                {
+                    "title": "Passa confiança a seus subordinados"
+                }
+            ]
+        },
+        {
+            "type": "rating-order",
+            "title": "Considerando o perfil da chefia que ocupa o cargo mais alto no setor de RH/Gestão de Pessoas de sua empresa, classifique cada item utilizando uma escala de valores na qual 1 representa as características mais presentes e 7 as menos presentes.",
+            "required": true,
+            "scenarios": [
+                "Atualmente",
+                "Como seria o ideal"
+            ],
+            "questions": [
+                {
+                    "title": "Desenvolve trabalhos direcionados à Responsabilidade social"
+                },
+                {
+                    "title": "Trabalha com visão de logo prazo (visionária)"
+                },
+                {
+                    "title": "Se empenha em melhorar a qualidade de vida para todos os funcionários"
+                },
+                {
+                    "title": "Sente e demonstra empatia e preocupação com os membros da sua equipe"
+                },
+                {
+                    "title": "Luta pelos direitos humanos"
+                },
+                {
+                    "title": "Buscar a sustentabilidade nos processos com base na consciência ecológica"
+                },
+                {
+                    "title": "Apresenta comportamento pautado na responsabilidade social"
+                }
+            ]
+        }
+    ]
+}
+
