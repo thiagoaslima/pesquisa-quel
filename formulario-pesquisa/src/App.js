@@ -9,8 +9,8 @@ const App = () => {
         <Router>
             <div className="App color-5">
                 <header className="App__header bg-color-3" />
-                <Route exact path="/" component={Formulario} />
-                <Route path="/confirmation" component={Confirmation} />
+                <Route exact path="/raquel/" component={Formulario} />
+                <Route path="/raquel/confirmation" component={Confirmation} />
             </div>
         </Router>
     )

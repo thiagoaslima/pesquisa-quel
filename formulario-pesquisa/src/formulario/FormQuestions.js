@@ -58,7 +58,7 @@ class FormQuestions extends Component {
 
                 <div className="question__form__footer">
                     <button className="question__form__submit-button bg-color-3" type="submit">Enviar</button> 
-                    { this.state.shouldRedirect && <Redirect to="/confirmation" /> }
+                    { this.state.shouldRedirect && <Redirect to="/raquel/confirmation" /> }
                 </div>
 
             </form>
